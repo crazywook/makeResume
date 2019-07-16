@@ -5,9 +5,14 @@
     ],
     "jsRules": {},
     "rules": {
+        "arrow-parens": false,
         "interface-name": false,
+        "interface-over-type-literal": false,
         "no-console": false,
+        "max-line-length": false,
+        "member-access": false,
         "object-literal-sort-keys": false,
+        "trailing-comma": false
     },
     "rulesDirectory": []
 }
