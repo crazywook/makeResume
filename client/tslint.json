@@ -12,6 +12,7 @@
         "max-line-length": false,
         "member-access": false,
         "object-literal-sort-keys": false,
+        "one-line": true,
         "trailing-comma": false
     },
     "rulesDirectory": []

@@ -1,15 +1,71 @@
 import * as React from "react";
 import Styled from "styled-components";
 
+import {ProjectDto} from "../../containers/project/types";
+
 interface PropsType {
   className?: string;
-  title: string;
+  projects: ProjectDto[];
 }
 
-export const Project: React.FunctionComponent<PropsType> = ({title, className = ""}) => {
+const StyledBlock = Styled.div`
+  
+`;
+
+export const Project: React.FunctionComponent<PropsType> = ({projects, className = ""}) => {
   return (
-    <div className={className} >
-      {title}
-    </div>
+    <StyledBlock className={className} >
+      <h3
+          className="">프로젝트</h3>
+      {projects.map(project =>
+        <div key={project.id} >
+          <h2
+            className="">👚{project.title} <span className="highlight-gray">2019 / 04 ~ 2019 / 07</span>
+          </h2>
+          <p
+            className=""
+          >
+            {project.description}
+          </p>
+          <p
+            className="">web :&nbsp;
+            <span className="highlight-gray">
+              <a
+                href={project.webUrl}>
+                  {project.webUrl}
+              </a>
+            </span>
+          </p>
+          <p
+            className="">ios :&nbsp;
+            <span className="highlight-gray">
+              <a
+                href={project.iosUrl}>
+                  {project.iosUrl}
+              </a>
+            </span>
+          </p>
+          <p
+            className="">android :&nbsp;
+            <span className="highlight-gray">
+              <a
+                href={project.androidUrl}>
+                  {project.androidUrl}
+              </a>
+            </span>
+          </p>
+          <p>
+            <h3>구현</h3>
+            <figure className="block-color-gray_background callout"
+                // style="white-space:pre-wrap;display:flex"
+            >
+              <div>
+                🏛 {project.implement}
+              </div>
+            </figure>
+          </p>
+        </div>
+      )}
+    </StyledBlock>
   );
 };

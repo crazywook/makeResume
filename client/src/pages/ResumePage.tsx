@@ -1,15 +1,16 @@
 import * as React from "react";
-import {Contact} from "../components/resume/Contact";
-import {Name} from "../components/resume/Name";
-import {ResumeBody} from "../components/resume/ResumeBody";
-import {Spec} from "../components/resume/Spec";
-import {ProjectContainer} from "../containers/ProjectContainer";
-import {ResumeContainer} from "../containers/resume/ResumeContainer";
-import {Project} from "../components/Project/Project";
+
+import {Contact} from "../components/applicantInfo/Contact";
+import {Name} from "../components/applicantInfo/Name";
+import {ResumeBody} from "../components/applicantInfo/ResumeBody";
+import {Spec} from "../components/applicantInfo/Spec";
+import {Project} from "../components/project/Project";
+import {ApplicantInfoContainer} from "../containers/applicantInfo/ApplicantInfoContainer";
+import {ProjectContainer} from "../containers/project/ProjectContainer";
 
 export const ResumePage: React.SFC<{}> = () =>
   <ResumeBody>
-    <ResumeContainer>
+    <ApplicantInfoContainer>
       {props => props.isApplicantInfoLoading
           ? <div>loading...</div>
           : <>
@@ -24,64 +25,14 @@ export const ResumePage: React.SFC<{}> = () =>
             />
           </>
       }
-    </ResumeContainer>
-          <hr  />
-          <h3
-              className="">프로젝트</h3>
-          <h2
-              className="">👚트렌디 <mark className="highlight-gray">2019 / 04 ~ 2019 / 07</mark></h2>
-          <p
-            className="">
-              트렌디 앱은 20 ~ 30대 여성들을 상대로 하는 패션 정기구독 서비스입니다.
-          </p>
-    <ProjectContainer title="트렌디">
+    </ApplicantInfoContainer>
+    <hr  />
+    <ProjectContainer >
       {props => !props
         ? <div>loading...</div>
-        : <Project title={props.title} />
+        : <Project projects={props.projects} />
       }
     </ProjectContainer>
-          <p
-            className="">ios :&nbsp;
-            <mark className="highlight-gray">
-              <a
-                href="https://apps.apple.com/kr/app/tlendy-%ED%8A%B8%EB%A0%8C%EB%94%94-%ED%8C%A8%EC%85%98-%EC%A0%95%EA%B8%B0%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4/id1404289501">
-                  https://apps.apple.com/kr/app/tlendy-트렌디-패션-정기구독-서비스/id1404289501
-              </a>
-            </mark>
-          </p>
-          <p
-            className="">android :&nbsp;
-            <mark className="highlight-gray">
-              <a
-                href="https://play.google.com/store/apps/details?id=co.actionrabbit.tlendy&amp;hl=ko&amp;showAllReviews=true">
-                  https://play.google.com/store/apps/details?id=co.actionrabbit.tlendy&amp;hl=ko&amp;showAllReviews=true
-              </a>
-            </mark>
-          </p>
-          <div
-            className=""><strong>구현</strong>
-            <div className="indented">
-              <figure className="block-color-gray_background callout"
-                // style="white-space:pre-wrap;display:flex"
-              >
-                <div
-                  // style="font-size:1.5em"
-                >
-                  <span className="icon">🏛</span>
-                </div>
-                <div
-                  // style="width:100%"
-                >
-                  nodeJs 와 Typescript로 만든 RestAPI 서버
-                  서버 프레임워크는 Express에 routing-controllers 사용
-                  DB: MYSQL
-                  티켓구매페이지는 SSR로 구현
-                  ORM은 Sequelize 사용
-                  기타 라이브러리: lodash, moment
-                  클라이언트: Typescript, React, Redux, Cordova로 구현</div>
-              </figure>
-            </div>
-          </div>
           <div
             className=""><strong>Business Logic</strong>
             <div className="indented">

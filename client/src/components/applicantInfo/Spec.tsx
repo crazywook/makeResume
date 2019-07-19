@@ -11,13 +11,13 @@ export const Spec: React.FunctionComponent<PropsType> = props =>
   <div className={props.className} >
     <p
       className="">
-      <strong>경력</strong> : <mark className="highlight-orange">{props.career}</mark>
+      <strong>경력</strong> : <span className="highlight-orange">{props.career}</span>
     </p>
     <p
       className="">
-      <strong>주요기술 스택 </strong>: 
-      <mark className="highlight-brown">
+      <strong>주요기술 스택 </strong>:&nbsp;
+      <span className="highlight-brown">
         {props.skillStack.join(", ")}
-      </mark>
+      </span>
     </p>
   </div>;

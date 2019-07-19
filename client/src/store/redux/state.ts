@@ -1,5 +1,7 @@
-import {ApplicantInfoState} from "../../containers/resume/types";
+import {ApplicantInfoState} from "../../containers/applicantInfo/types";
+import {ProjectsState} from "../../containers/project/reducer";
 
 export default interface RootState {
-  resumeState: ApplicantInfoState;
+  applicantInfoState: ApplicantInfoState;
+  projectsState: ProjectsState;
 }

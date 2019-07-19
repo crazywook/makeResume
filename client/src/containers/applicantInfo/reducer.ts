@@ -1,5 +1,6 @@
 import {produce} from "immer";
-import {LOAD_RESUME, LOAD_RESUME_FINISH, LOAD_RESUME_START} from "./action";
+
+import {APPLICANT_INFO_RECEIVED, APPLICANT_INFO_REQUEST_FINISH, APPLICANT_INFO_REQUEST_START} from "./action";
 import {ApplicantInfoState} from "./types";
 
 const initialState: ApplicantInfoState = {
@@ -15,16 +16,17 @@ const initialState: ApplicantInfoState = {
 
 export default function reducer(state: ApplicantInfoState = initialState, action) {
 
-  switch(action.type) {
-    case LOAD_RESUME:
+  switch (action.type) {
+    case APPLICANT_INFO_RECEIVED:
+      console.log(APPLICANT_INFO_RECEIVED, action.payload);
       return produce(state, draft => {
         draft.applicantInfo = action.payload.applicantInfo;
       });
-    case LOAD_RESUME_FINISH:
+    case APPLICANT_INFO_REQUEST_FINISH:
       return produce(state, draft => {
         draft.isApplicantInfoLoading = false;
       });
-    case LOAD_RESUME_START:
+    case APPLICANT_INFO_REQUEST_START:
       return produce(state, draft => {
         draft.isApplicantInfoLoading = true;
       });

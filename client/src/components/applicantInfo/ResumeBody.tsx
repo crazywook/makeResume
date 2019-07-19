@@ -24,11 +24,57 @@ const StyledBlock = Styled.div`
 
   @media only screen {
     margin: 2em auto;
-    max-width: 900px;
+    max-width: 600px;
     color: rgb(55, 53, 47);
 
     line-height: 1.5;
     white-space: pre-wrap;
+  }
+
+  a,
+  a.visited {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .pdf-relative-link-path {
+    font-size: 80%;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  figure {
+    margin: 0.75em 0;
+    page-break-inside: avoid;
+  }
+
+  .block-color-gray_background {
+    background: rgb(235, 236, 237);
+  }
+
+  .highlight-orange {
+    color: rgb(217,115,13);
+  }
+
+  .highlight-brown {
+    color: rgb(100,71,58);
+  }
+
+  .highlight-gray {
+    color: rgb(155,154,151);
+  }
+
+  .callout {
+    border-radius: 3px;
+    padding: 1rem;
   }
 `;
 

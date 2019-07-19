@@ -1,6 +1,9 @@
 import {applyMiddleware, compose, createStore} from "redux";
+import createSagaMiddleware from "redux-saga";
 import thunkMiddleware from "redux-thunk";
+
 import reducers from "./reducers";
+import rootSaga from "./rootSaga";
 import RootState from "./state";
 
 const isProduct = process.env.NODE_ENV === "production";
@@ -17,9 +20,15 @@ const composeEnhancers = isProduct
 
 export function configure(initialState: RootState | {} = {}) {
 
-  return createStore(
+  const sagaMiddleware = createSagaMiddleware();
+
+  const store = createStore(
     reducers,
     initialState,
-    composeEnhancers(applyMiddleware(thunkMiddleware)),
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
   );
+
+  sagaMiddleware.run(rootSaga);
+
+  return store;
 }
