@@ -14,12 +14,12 @@ export const BusinessLogics: React.FunctionComponent<PropsType> = ({businessLogi
       <strong>Business Logic</strong>
       <div className="indented">
         {businessLogics.map(logic =>
-          <div>
+          <div key={logic.title}>
             <div>{logic.title}</div>
             {Array.isArray(logic.contents)
               ? <ul>
-                  {logic.contents.map(content =>
-                    <li>{content}</li>
+                  {logic.contents.map((content, i) =>
+                    <li key={i} >{content}</li>
                   )}
               </ul>
               : logic.contents

@@ -4,15 +4,18 @@ import {Contact} from "../components/applicantInfo/Contact";
 import {Name} from "../components/applicantInfo/Name";
 import {ResumeBody} from "../components/applicantInfo/ResumeBody";
 import {Spec} from "../components/applicantInfo/Spec";
+import {LoadingBlock} from "../components/common/loading/LoadingBlock";
+import {DeveloperHistory} from "../components/developerHistory";
 import {Project} from "../components/project/Project";
 import {ApplicantInfoContainer} from "../containers/applicantInfo/ApplicantInfoContainer";
+import {DeveloperHistoryContainer} from "../containers/developerHistory/DeveloperHistoryContainer";
 import {ProjectContainer} from "../containers/project/ProjectContainer";
 
 export const ResumePage: React.SFC<{}> = () =>
   <ResumeBody>
     <ApplicantInfoContainer>
       {props => props.isApplicantInfoLoading
-          ? <div>loading...</div>
+          ? <LoadingBlock />
           : <>
             <Name name={props.applicantInfo.name} />
             <Contact
@@ -28,11 +31,17 @@ export const ResumePage: React.SFC<{}> = () =>
     </ApplicantInfoContainer>
     <hr />
     <ProjectContainer >
-      {props => !props
-        ? <div>loading...</div>
+      {props => props.isProjectLoading
+        ? <LoadingBlock />
         : <Project projects={props.projects} />
       }
     </ProjectContainer>
+    <DeveloperHistoryContainer>
+      {props => props.isDeveloperHistoryLoading
+        ? <LoadingBlock />
+        : <DeveloperHistory developerHistory={props.developerHistory} />
+      }
+    </DeveloperHistoryContainer>
           <h3
               className="">개발 연혁</h3>
           <div

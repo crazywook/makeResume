@@ -25,6 +25,4 @@ export const setLoadApplicantInfoFinish = dispatch =>
     type: APPLICANT_INFO_REQUEST_FINISH
   });
 
-export const requestApplicantInfo = () => ({
-    type: APPLICANT_INFO_REQUEST,
-});
+export const requestApplicantInfo = () => ApplicantInfoAction.requestApplicantInfo();
