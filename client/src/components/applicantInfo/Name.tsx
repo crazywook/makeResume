@@ -9,13 +9,13 @@ const StyledName = Styled.p`
 
 interface PropsType {
   className?: string;
-  name: string;
+  name?: string;
 }
 
 export const Name: React.FunctionComponent<PropsType> = ({name, className = ""}) => {
   return (
     <StyledName className={className} >
-      <span className="logo">🧩</span>{name}
+      <span className="logo">🧩</span>{name || ""}
     </StyledName>
   );
 };

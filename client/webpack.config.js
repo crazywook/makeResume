@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: `app-dist.${env}.js`,
   },
+  devtool: "inline-source-map",
   mode: getWebpackMode(env),
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx"]
