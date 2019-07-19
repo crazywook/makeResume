@@ -8,4 +8,8 @@ export interface ProjectDto {
   androidUrl?: string;
   webUrl?: string;
   implement: string;
+  businessLogics?: {
+    title: string;
+    contents: string | any[];
+  }[];
 }

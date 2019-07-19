@@ -76,6 +76,10 @@ const StyledBlock = Styled.div`
     border-radius: 3px;
     padding: 1rem;
   }
+
+  .indented {
+    padding-left: 1.5em;
+  }
 `;
 
 export const ResumeBody: React.FunctionComponent<PropsType> = ({children, className = ""}) => {

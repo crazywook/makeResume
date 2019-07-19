@@ -1,5 +1,6 @@
 # Content
-이력서 작성을 도와주는 앱입니다.
+이력서를 redux-saga를 활용해 구현하기
+아직 구현 중입니다.
 ### Installation
 ```bash
 npm install

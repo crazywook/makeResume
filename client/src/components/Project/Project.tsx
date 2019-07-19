@@ -1,7 +1,9 @@
 import * as React from "react";
 import Styled from "styled-components";
 
+import Block from "../../components/common/ResumeBlock";
 import {ProjectDto} from "../../containers/project/types";
+import {BusinessLogics} from "./BusinessLogics";
 
 interface PropsType {
   className?: string;
@@ -15,8 +17,9 @@ const StyledBlock = Styled.div`
 export const Project: React.FunctionComponent<PropsType> = ({projects, className = ""}) => {
   return (
     <StyledBlock className={className} >
-      <h3
-          className="">프로젝트</h3>
+      <h3 className="">
+        프로젝트
+      </h3>
       {projects.map(project =>
         <div key={project.id} >
           <h2
@@ -54,7 +57,7 @@ export const Project: React.FunctionComponent<PropsType> = ({projects, className
               </a>
             </span>
           </p>
-          <p>
+          <Block>
             <h3>구현</h3>
             <figure className="block-color-gray_background callout"
                 // style="white-space:pre-wrap;display:flex"
@@ -63,7 +66,10 @@ export const Project: React.FunctionComponent<PropsType> = ({projects, className
                 🏛 {project.implement}
               </div>
             </figure>
-          </p>
+          </Block>
+          {project.businessLogics &&
+            <BusinessLogics businessLogics={project.businessLogics}></BusinessLogics>
+          }
         </div>
       )}
     </StyledBlock>
