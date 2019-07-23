@@ -12,6 +12,9 @@ module.exports = {
   },
   devtool: "inline-source-map",
   mode: getWebpackMode(env),
+  node: {
+    child_process: "empty"
+ },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx"]
   },

@@ -10,7 +10,7 @@ import {DeveloperHistoryState} from "./types";
 type PropertyProps = DeveloperHistoryState;
 
 interface DispatchProps {
-  requestDeveloperHistory();
+  requestDeveloperHistory: typeof requestDeveloperHistory;
 }
 
 interface RouterComponentProps {

@@ -1,10 +1,11 @@
-export interface Achievement {
+export interface AchievementDto {
   id: number;
+  title: string;
   startedAt: Date;
   contents: string | string[];
 }
 
 export interface DeveloperHistoryState {
   isDeveloperHistoryLoading: boolean;
-  developerHistory: Achievement[];
+  developerHistory: AchievementDto[];
 }

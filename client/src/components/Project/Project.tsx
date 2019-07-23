@@ -11,7 +11,9 @@ interface PropsType {
 }
 
 const StyledBlock = Styled.div`
-  
+  .fa-apple {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Project: React.FunctionComponent<PropsType> = ({projects, className = ""}) => {
@@ -31,11 +33,11 @@ export const Project: React.FunctionComponent<PropsType> = ({projects, className
             {project.description}
           </p>
           <p
-            className="">web :&nbsp;
+            className=""><i className="fab fa-apple"></i>web :&nbsp;
             <span className="highlight-gray">
               <a
                 href={project.webUrl}>
-                  {project.webUrl}
+                  <i className="fab fa-apple"></i>
               </a>
             </span>
           </p>
