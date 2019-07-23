@@ -1,12 +1,13 @@
 import * as React from "react";
 import {bindActionCreators} from "redux";
 
+import {FunctionChildrenComponent} from "../../components/common/ParentComponent";
 import {connect} from "../../lib/redux/connect";
 import RootState from "../../store/redux/state";
 import {requestApplicantInfo} from "./action";
-import {ApplicantInfo, ApplicantInfoState} from "./types";
+import {ApplicantInfoState} from "./types";
 
-type PropertyProps  = ApplicantInfoState;
+type PropertyProps = ApplicantInfoState;
 
 interface DispatchProps {
   requestApplicantInfo();
@@ -18,14 +19,10 @@ interface RouterComponentProps {
 
 type PropsType = DispatchProps & RouterComponentProps & PropertyProps;
 
-class ApplicantInfoContainer extends React.Component<PropsType> {
+class ApplicantInfoContainer extends FunctionChildrenComponent<PropsType> {
 
   componentDidMount() {
     this.props.requestApplicantInfo();
-  }
-
-  render() {
-    return this.props.children(this.props);
   }
 }
 
