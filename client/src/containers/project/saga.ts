@@ -1,14 +1,14 @@
-import {call, put, takeEvery} from "redux-saga/effects";
+import {call, put, takeEvery} from "redux-saga/effects"
 
-import {requestProjects} from "../../request/project";
+import {fetchProjects} from "../../request/project"
 import {
   ProjectActions,
   PROJECTS_RECEIVED,
   PROJECTS_REQUEST,
   PROJECTS_REQUEST_FAILED,
   PROJECTS_REQUEST_FINISHED,
-} from "./action";
-import {ProjectDto} from "./types";
+} from "./action"
+import {ProjectDto} from "./types"
 
 export function* watchRequestProjects() {
   console.log("watchRequestProjects");
@@ -17,8 +17,9 @@ export function* watchRequestProjects() {
 
 const projectsMock: ProjectDto[] = [
   {
-    id: 1,
-    title: "트렌디",
+    id: 11,
+    title: "👚 트렌디",
+    owns: "액션래빗",
     description: "트렌디 앱은 20 ~ 30대 여성들을 상대로 하는 패션 정기구독 서비스입니다.",
     startedAt: new Date("2018-04-18"),
     webUrl: "http://tlendy.com",
@@ -77,29 +78,81 @@ const projectsMock: ProjectDto[] = [
       }
     ]
   },
+  {
+    id: 6,
+    title: "라오스 외국인 노동자 IC카드 발급 관리",
+    owns: "온넷애드",
+    startedAt: new Date("2018-02"),
+    finishedAt: new Date("2018-04"),
+    description: "",
+    implement:
+`java, spring, javascript`
+  },
+  {
+    id: 5,
+    title: "사내용 국세청 연말 정산",
+    owns: "TONYMOLY",
+    startedAt: new Date("2018-01"),
+    finishedAt: new Date("2018-01"),
+    description: "",
+    implement:
+`java, spring, javascript`
+  },
+  {
+    id: 4,
+    title: "가상화폐 거래소 prototype",
+    owns: "KOREDEX",
+    startedAt: new Date("2018-01"),
+    finishedAt: new Date("2018-11"),
+    description: "",
+    implement:
+`bitMex API, websocket, javascript, java, spring`
+  },
+  {
+    id: 3,
+    title: "오픈마켓 쇼핑몰",
+    owns: "온넷애드",
+    startedAt: new Date("2018-06"),
+    finishedAt: new Date("2018-11"),
+    description: "php프로젝트를 jsp로 converting",
+    implement:
+`javascript, java, spring`,
+  },
+  {
+    id: 2,
+    title: "포항공대 식당앱",
+    owns: "POSTECH",
+    startedAt: new Date("2018-03"),
+    finishedAt: new Date("2018-05"),
+    description: "",
+    implement:
+`javascript, cordova, push alarm`,
+  },
+  {
+    id: 1,
+    title: "매장 관리 앱",
+    owns: "온넷애드",
+    startedAt: new Date("2018-03"),
+    finishedAt: new Date("2018-05"),
+    description: "매장에 설치된 자사 기기관리, 매출 관리",
+    implement:
+`java, spring, javascript`,
+  },
 ];
 
 export function* loadProjects() {
-  console.log("load projects");
-  const a = yield put({
+  const {projects, error} = yield call(fetchProjects);
+  console.log("p", projects)
+  console.log("e", error);
+  if (error) {
+
+    yield put({type: PROJECTS_REQUEST_FAILED});
+    yield put(ProjectActions.receiveProjects({projects: projectsMock}));
+    return;
+  }
+
+  yield put({
     type: PROJECTS_RECEIVED,
-    payload: {projects: projectsMock}
+    projects
   });
-  console.log("put", a);
-  // const {projects, error} = yield call(requestProjects);
-  // if (error) {
-
-  //   yield put({type: PROJECTS_REQUEST_FAILED});
-  //   yield put({
-  //     type: PROJECTS_RECEIVED,
-  //     projects: projectsMock
-  //   });
-  //   console.log("saga error flow")
-  //   return;
-  // }
-
-  // yield put({
-  //   type: PROJECTS_RECEIVED,
-  //   projects
-  // });
 }

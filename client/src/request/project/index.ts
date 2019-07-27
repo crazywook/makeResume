@@ -1,5 +1,5 @@
-export function requestProjects() {
-  return fetch("http://localhost:3000")
+export function fetchProjects() {
+  return fetch("/api/projects")
     .then(r => r.ok
       ? {projects: r.json()}
       : {error: r}

@@ -1,9 +1,9 @@
-import {range} from "lodash";
-import moment from "moment";
-import * as React from "react";
-import Styled from "styled-components";
+import {range} from "lodash"
+import moment from "moment"
+import * as React from "react"
+import Styled from "styled-components"
 
-import {DeveloperHistoryState} from "../../containers/developerHistory/types";
+import {DeveloperHistoryState} from "../../containers/developerHistory/types"
 
 const DeveloperHistoryLayout = Styled.div`
   display: flex;
@@ -16,17 +16,19 @@ type PropsType = {
   className?: string;
 } & Pick<DeveloperHistoryState, "developerHistory">;
 
-export const DeveloperHistory: React.FunctionComponent<PropsType> = ({developerHistory, className = ""}) => {
-  return <DeveloperHistoryLayout>
-    {developerHistory.map(achievement =>
-      <Achievement
-        key={achievement.id}
-        achievement={achievement}
-        displayableRowCount={3}
-      />
-    )}
-  </DeveloperHistoryLayout>;
-};
+export const DeveloperHistory: React.FunctionComponent<PropsType> = ({developerHistory, className = ""}) =>
+  <div>
+    <h3>개발 연혁</h3>
+    <DeveloperHistoryLayout>
+      {developerHistory.map(achievement =>
+        <Achievement
+          key={achievement.id}
+          achievement={achievement}
+          displayableRowCount={3}
+        />
+      )}
+    </DeveloperHistoryLayout>
+  </div>;
 
 const AchievementLayout = Styled.div`
   ul {
@@ -50,7 +52,7 @@ const Achievement: React.FunctionComponent<AchievementProps> = ({achievement, di
           ? <ul>
             {achievement.contents.slice(0, displayableRowCount).map((content, i) =>
               <li key={i} >
-								{content}
+                {content}
               </li>
             )}
             {/* TODO: create EllipsisRow component}

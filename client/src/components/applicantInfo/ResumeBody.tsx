@@ -1,5 +1,5 @@
-import * as React from "react";
-import Styled from "styled-components";
+import * as React from "react"
+import Styled from "styled-components"
 
 interface PropsType {
   className?: string;
@@ -48,11 +48,16 @@ const StyledBlock = Styled.div`
     letter-spacing: -0.01em;
     line-height: 1.2;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-top: 0.7em;
+    margin-bottom: 0.3em;
+  }
+
+  h2 {
+    font-size: 1.2rem;
   }
 
   figure {
-    margin: 0.75em 0;
+    margin: 0.5em 0 0.75em;
     page-break-inside: avoid;
   }
 
@@ -79,6 +84,20 @@ const StyledBlock = Styled.div`
 
   .indented {
     padding-left: 1.5em;
+  }
+
+  ul {
+    margin: 0.5rem 0;
+  }
+
+  @media print {
+    .decolorization-for-print {
+      background-color: #fff;
+    }
+    .decolorization-and-no-pading-for-print {
+      padding: 0 !important;
+      background-color: #fff;
+    }
   }
 `;
 

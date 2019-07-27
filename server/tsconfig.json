@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "allowJs": false,
     "jsx": "preserve",
@@ -15,7 +15,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "es5"
     ],
     "skipLibCheck": true,
     "strict": false,
