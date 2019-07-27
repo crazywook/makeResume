@@ -1,6 +1,7 @@
 export interface ProjectDto {
   id: number;
   title: string;
+  owns: string;
   startedAt?: Date;
   finishedAt?: Date;
   description: string;
