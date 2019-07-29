@@ -141,9 +141,7 @@ const projectsMock: ProjectDto[] = [
 ];
 
 export function* loadProjects() {
-  const {projects, error} = yield call(fetchProjects);
-  console.log("p", projects)
-  console.log("e", error);
+  const {data, error} = yield call(fetchProjects);
   if (error) {
 
     yield put({type: PROJECTS_REQUEST_FAILED});
@@ -153,6 +151,6 @@ export function* loadProjects() {
 
   yield put({
     type: PROJECTS_RECEIVED,
-    projects
+    data
   });
 }

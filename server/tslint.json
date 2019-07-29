@@ -7,10 +7,23 @@
     "rules": {
       "arrow-parens": false,
       "interface-name": false,
+      "member-access": [
+        true,
+        "no-public"
+      ],
       "no-console": false,
       "no-var-requires": false,
+      "object-literal-sort-keys": false,
       "one-line": false,
       "semicolon": [true, "never"],
+      "trailing-comma": [
+        true,
+        {
+          "multiline": {
+            "functions": "never"
+          }
+        }
+      ],
       "whitespace": false
     },
     "rulesDirectory": []

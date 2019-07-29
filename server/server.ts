@@ -1,5 +1,13 @@
+import "reflect-metadata"
+
+import cors from "cors"
 import express from "express"
 import next from "next"
+import * as path from "path"
+import {useExpressServer} from "routing-controllers"
+
+import * as corsOption from "./cors.json"
+import {CustomExpressMiddleware} from "./middlewares/CustomExpress.middleware"
 
 const dev = process.env.NODE_ENV !== "production"
 const nextApp = next({dev})
@@ -14,22 +22,37 @@ export async function createServer()
     })
 
   const server = express()
+  server.use(cors(corsOption))
 
-  server.get("/api", (req, res) => {
-    const page = "/index"
-
-    res.send("api test")
-  })
+  useExpressServer(server, buildRoutingControllersOption())
 
   server.get("/board/:title", (req, res) => {
-      const page = "/index"
-      const params = {title: req.params.title}
-      nextApp.render(req, res, page, params)
+    const page = "/index"
+    const params = {title: req.params.title}
+    nextApp.render(req, res, page, params)
   })
 
+  const notApiRegex = /^(?!\/api)/
   server.get("*", (req, res) => {
+
+    if(notApiRegex.test(req.url)) {
       return handle(req, res)
+    }
   })
 
   return server
+}
+
+function buildRoutingControllersOption()
+{
+  const middlewares = [CustomExpressMiddleware]
+  return {
+    routePrefix: "/api",
+    classTransformer: true,
+    defaultErrorHandler: false,
+    controllers: [
+      path.resolve(__dirname, "model/**/*.controller{.ts,.js}"),
+    ],
+    middlewares
+  }
 }
