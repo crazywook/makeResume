@@ -7,7 +7,6 @@ import * as path from "path"
 import {useExpressServer} from "routing-controllers"
 
 import * as corsOption from "./cors.json"
-import {CustomExpressMiddleware} from "./middlewares/CustomExpress.middleware"
 
 const dev = process.env.NODE_ENV !== "production"
 const nextApp = next({dev})
@@ -45,7 +44,6 @@ export async function createServer()
 
 function buildRoutingControllersOption()
 {
-  const middlewares = [CustomExpressMiddleware]
   return {
     routePrefix: "/api",
     classTransformer: true,
@@ -53,6 +51,5 @@ function buildRoutingControllersOption()
     controllers: [
       path.resolve(__dirname, "model/**/*.controller{.ts,.js}"),
     ],
-    middlewares
   }
 }
