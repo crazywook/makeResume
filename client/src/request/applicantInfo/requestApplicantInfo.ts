@@ -1,6 +1,6 @@
-import {ApplicantInfo} from "../../containers/applicantInfo/types";
-import {http} from "../../lib/http";
+import {ApplicantInfo} from "../../containers/applicantInfo/types"
+import {http} from "../../lib/http"
 
 export function fetchApplicantInfo() {
-  return http<ApplicantInfo>("/api/resume");
+  return http<ApplicantInfo>("http://localhost:9090/api/applicant");
 }
