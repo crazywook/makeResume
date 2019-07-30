@@ -1,7 +1,7 @@
-import {http} from "../../lib/http";
+import {http} from "../../lib/http"
 
 export const fetchDeveloperHistory = () =>
-  http("/api/developer-history")
+  http("/developer-history")
     .catch(e => ({
       error: e
     }));

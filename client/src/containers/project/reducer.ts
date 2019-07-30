@@ -1,9 +1,9 @@
-import {produce} from "immer";
-import {handleActions} from "redux-actions";
+import {produce} from "immer"
+import {handleActions} from "redux-actions"
 
-import {PROJECTS_RECEIVED, PROJECTS_REQUEST_FAILED} from "./action";
-import {PROJECTS_REQUEST, PROJECTS_REQUEST_FINISHED} from "./action";
-import {ProjectDto} from "./types";
+import {ProjectDto} from "../../../../common/model/projects/types"
+import {PROJECTS_RECEIVED, PROJECTS_REQUEST_FAILED} from "./action"
+import {PROJECTS_REQUEST, PROJECTS_REQUEST_FINISHED} from "./action"
 
 export interface ProjectsState {
   isProjectLoading: boolean;

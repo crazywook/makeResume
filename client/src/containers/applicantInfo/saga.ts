@@ -1,8 +1,7 @@
 import {call, put, takeEvery} from "redux-saga/effects"
 
-import {fetchApplicantInfo} from "../../request/applicantInfo/requestApplicantInfo"
+import {fetchApplicantInfo} from "../../request/applicantInfo"
 import {APPLICANT_INFO_REQUEST, ApplicantInfoAction} from "./action"
-import {ApplicantInfo} from "./types"
 
 export function* watchRequestApplicantInfo() {
 

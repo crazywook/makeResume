@@ -5,7 +5,9 @@ export async function http<R>(url: string, method: string = "get"):
     error?: string;
   }>
 {
-  const result = await fetch(url, { method });
+  console.log("process", process.env.API_URL);
+  const fullUrl = `${process.env.API_URL}/api${url}`;
+  const result = await fetch(fullUrl, { method });
 
   if (result.ok) {
     const data = await result.json();

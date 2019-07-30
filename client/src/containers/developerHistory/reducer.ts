@@ -1,8 +1,8 @@
-import {produce} from "immer";
-import {handleActions} from "redux-actions";
+import {produce} from "immer"
+import {handleActions} from "redux-actions"
 
-import {DEVELOPER_HISTORY_RECEIVED, DEVELOPER_HISTORY_REQUEST} from "./action";
-import {DeveloperHistoryState} from "./types";
+import {DeveloperHistoryState} from "../../../../common/model/developerHistory/types"
+import {DEVELOPER_HISTORY_RECEIVED, DEVELOPER_HISTORY_REQUEST} from "./action"
 
 export const initialState: DeveloperHistoryState = {
   isDeveloperHistoryLoading: true,
