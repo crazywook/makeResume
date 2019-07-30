@@ -1,7 +1,7 @@
-import * as React from "react";
-import Styled from "styled-components";
+import * as React from "react"
+import Styled from "styled-components"
 
-import {ProjectDto} from "../../containers/project/types";
+import {ProjectDto} from "../../../../common/model/projects/types"
 
 interface PropsType {
   className?: string;

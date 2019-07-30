@@ -5,7 +5,6 @@ export async function http<R>(url: string, method: string = "get"):
     error?: string;
   }>
 {
-  console.log("process", process.env.API_URL);
   const fullUrl = `${process.env.API_URL}/api${url}`;
   const result = await fetch(fullUrl, { method });
 

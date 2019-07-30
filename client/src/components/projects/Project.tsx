@@ -2,9 +2,9 @@ import moment = require("moment")
 import * as React from "react"
 import Styled from "styled-components"
 
+import {ProjectDto} from "../../../../common/model/projects/types"
 import {FlexHeader} from "../../components/layout/FlexHeader"
 import {WebLink} from "../../components/projects/WebLink"
-import {ProjectDto} from "../../containers/project/types"
 import Block from "../common/ResumeBlock"
 import {BusinessLogics} from "./BusinessLogics"
 

@@ -1,6 +1,6 @@
 import {createAction} from "redux-actions"
 
-import {ProjectDto} from "./types"
+import {ProjectDto} from "../../../../common/model/projects/types"
 
 export const PROJECTS_REQUEST = `PROJECTS_REQUEST`;
 export const PROJECTS_RECEIVED = `PROJECTS_RECEIVED`;
