@@ -7,12 +7,6 @@ const devServerConfig = {
   hot: true,
   inline: true,
   host: "localhost",
-  // proxy: {
-  //   "/api/*": "http://localhost:3000"
-  // },
-  // headers: {
-  //   "Access-Control-Allow-Origin": "*",
-  // },
 };
 
 const port = 5500;

@@ -1,11 +1,11 @@
-import {applyMiddleware, compose, createStore} from "redux";
-import createSagaMiddleware from "redux-saga";
-import thunkMiddleware from "redux-thunk";
+import {applyMiddleware, compose, createStore} from "redux"
+import createSagaMiddleware from "redux-saga"
 
-import reducers from "./reducers";
-import rootSaga from "./rootSaga";
-import RootState from "./state";
+import reducers from "./reducers"
+import rootSaga from "./rootSaga"
+import RootState from "./state"
 
+console.log("node_env", process.env.NODE_ENV);
 const isProduct = process.env.NODE_ENV === "production";
 
 declare global {

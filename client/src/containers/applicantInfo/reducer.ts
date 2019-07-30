@@ -1,8 +1,8 @@
-import {produce} from "immer";
-import {handleActions} from "redux-actions";
+import {produce} from "immer"
+import {handleActions} from "redux-actions"
 
-import {APPLICANT_INFO_RECEIVED, APPLICANT_INFO_REQUEST_FINISH, APPLICANT_INFO_REQUEST_START} from "./action";
-import {ApplicantInfoState} from "./types";
+import {APPLICANT_INFO_RECEIVED, APPLICANT_INFO_REQUEST_FINISH, APPLICANT_INFO_REQUEST_START} from "./action"
+import {ApplicantInfoState} from "./types"
 
 const initialState: ApplicantInfoState = {
   isApplicantInfoLoading: true,
@@ -12,6 +12,7 @@ const initialState: ApplicantInfoState = {
     phone: "",
     career: "",
     skillStack: [],
+    githubUrl: "",
   },
 };
 

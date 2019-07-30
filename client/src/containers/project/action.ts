@@ -1,6 +1,6 @@
-import {createAction} from "redux-actions";
+import {createAction} from "redux-actions"
 
-import {ProjectDto} from "./types";
+import {ProjectDto} from "../../../../common/model/projects/types"
 
 export const PROJECTS_REQUEST = `PROJECTS_REQUEST`;
 export const PROJECTS_RECEIVED = `PROJECTS_RECEIVED`;
@@ -11,6 +11,7 @@ export const ProjectActions = {
   requestProjects: createAction(PROJECTS_REQUEST),
   receiveProjects: createAction<{projects: ProjectDto[]}>(PROJECTS_RECEIVED),
   requestProjectsFailed: createAction(PROJECTS_REQUEST_FAILED),
+  requestProjectsFinished: createAction(PROJECTS_REQUEST_FINISHED)
 };
 
 export const requestProjects = () => ProjectActions.requestProjects();

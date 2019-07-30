@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import {Contact} from "../components/applicantInfo/Contact"
+import {GithubLink} from "../components/applicantInfo/GithubLink"
 import {Name} from "../components/applicantInfo/Name"
 import {ResumeBody} from "../components/applicantInfo/ResumeBody"
 import {Spec} from "../components/applicantInfo/Spec"
@@ -25,6 +26,9 @@ export const ResumePage: React.SFC<{}> = () =>
             <Spec
               career={props.applicantInfo.career}
               skillStack={props.applicantInfo.skillStack}
+            />
+            <GithubLink
+              url={props.applicantInfo.githubUrl}
             />
           </>
       }

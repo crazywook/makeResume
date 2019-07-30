@@ -25,12 +25,6 @@ export async function createServer()
 
   useExpressServer(server, buildRoutingControllersOption())
 
-  server.get("/board/:title", (req, res) => {
-    const page = "/index"
-    const params = {title: req.params.title}
-    nextApp.render(req, res, page, params)
-  })
-
   const notApiRegex = /^(?!\/api)/
   server.get("*", (req, res) => {
 

@@ -14,6 +14,7 @@ export class ApplicantController
       phone: "01090860572",
       career: "3년",
       skillStack: ["NodeJs", "Typescript", "React", "Java", "Spring"],
+      githubUrl: "https://github.com/crazywook/makeResume",
     }
 
     return applicantInfoMock
