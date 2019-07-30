@@ -9,6 +9,7 @@ cd client
 npm install
 ```
 ### Run
+Port 5500 should be enable
 ```bash
 npm run local
 ```
@@ -19,6 +20,7 @@ cd server
 npm install
 ```
 ### Run
+Port 9090 should be enable
 ```bash
 npm run local
 ```
