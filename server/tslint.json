@@ -8,11 +8,13 @@
       "array-type": false,
       "arrow-parens": false,
       "interface-name": false,
+      "max-line-length": false,
       "member-access": [
         true,
         "no-public"
       ],
       "no-console": false,
+      "no-reference": false,
       "no-var-requires": false,
       "object-literal-sort-keys": false,
       "one-line": false,

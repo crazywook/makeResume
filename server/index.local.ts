@@ -1,4 +1,7 @@
+import "./persistence/mongo"
+
 import * as fs from "fs"
+
 import {createServer} from "./server"
 
 const port = 9090
