@@ -1,5 +1,3 @@
-import {any} from "prop-types"
-
 import {ApplicantInfo} from "../../../../common/model/applicant/types"
 
 export interface ApplicantInfoState {
