@@ -1,12 +1,28 @@
-import {Get, JsonController} from "routing-controllers"
+import {Get, JsonController, Param, Post, QueryParam} from "routing-controllers"
 
+import {applicantInfoRepository} from "."
 import {ApplicantInfo} from "../../../common/model/applicant/types"
 
 @JsonController("/applicant")
 export class ApplicantController
 {
   @Get("/")
-  "get applicant info"()
+  "get all applicant info"()
+  {
+    console.log("applicant")
+    return applicantInfoRepository.find()
+  }
+
+  @Get("/:name")
+  "get one applicant info"(
+    @Param("name") name: string
+  )
+  {
+    return applicantInfoRepository.findByName(name)
+  }
+
+  @Post("/")
+  "create applicant info"()
   {
     const applicantInfoMock: ApplicantInfo = {
       name: "김성욱",
@@ -17,6 +33,6 @@ export class ApplicantController
       githubUrl: "https://github.com/crazywook/makeResume",
     }
 
-    return applicantInfoMock
+    return applicantInfoRepository.insert(applicantInfoMock)
   }
 }
