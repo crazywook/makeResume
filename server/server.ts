@@ -21,6 +21,7 @@ export async function createServer()
     })
 
   const server = express()
+  server.use(express.json())
   server.use(cors(corsOption))
 
   useExpressServer(server, buildRoutingControllersOption())

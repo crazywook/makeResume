@@ -11,11 +11,13 @@ if(!mongo) {
 
 const uri = `mongodb+srv://${mongo.username}:${mongo.password}@resume-osj6d.mongodb.net/test?retryWrites=true&w=majority`
 const client = new MongoClient(uri, { useNewUrlParser: true })
-client.connect(err => {
-  const collection = client.db("test").collection("devices")
-  // perform actions on the collection object
-  console.log(collection)
-  client.close()
-})
 
-export default 1
+export const dbSet: Promise<_MongoClient.Db> = new Promise((resolve, reject) => {
+  client.connect(async (err, db) => {
+    if(err) {
+      reject(err)
+    } else {
+      resolve(db.db("test"))
+    }
+  })
+})

@@ -1,5 +1,3 @@
-import "./persistence/mongo"
-
 import * as fs from "fs"
 
 import {createServer} from "./server"
