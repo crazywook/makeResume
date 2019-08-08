@@ -8,10 +8,8 @@ export const PROJECTS_REQUEST_FAILED = `PROJECTS_REQUEST_FAILED`;
 export const PROJECTS_REQUEST_FINISHED = `PROJECTS_FINISHED`;
 
 export const ProjectActions = {
-  requestProjects: createAction(PROJECTS_REQUEST),
-  receiveProjects: createAction<{projects: ProjectDto[]}>(PROJECTS_RECEIVED),
+  requestProjects: createAction<{name: string}>(PROJECTS_REQUEST),
+  receiveProjects: createAction<{projectHistory: ProjectDto[]}>(PROJECTS_RECEIVED),
   requestProjectsFailed: createAction(PROJECTS_REQUEST_FAILED),
   requestProjectsFinished: createAction(PROJECTS_REQUEST_FINISHED)
 };
-
-export const requestProjects = () => ProjectActions.requestProjects();

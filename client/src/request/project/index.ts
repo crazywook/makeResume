@@ -1,5 +1,5 @@
 import {http} from "../../lib/http"
 
-export function fetchProjects() {
-  return http("/projects");
+export function fetchProjects(name?: string) {
+  return http(`/projects/${name}`);
 }

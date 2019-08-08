@@ -1,4 +1,3 @@
-import {range} from "lodash"
 import moment from "moment"
 import * as React from "react"
 import Styled from "styled-components"
@@ -20,12 +19,15 @@ export const DeveloperHistory: React.FunctionComponent<PropsType> = ({developerH
   <div>
     <h3>개발 연혁</h3>
     <DeveloperHistoryLayout>
-      {developerHistory.map(achievement =>
+      {developerHistory
+        && (() => {console.log("developerHistory", developerHistory); return "a"; })()
+        && developerHistory.achievements.map(achievement =>
         <Achievement
           key={achievement.id}
           achievement={achievement}
           displayableRowCount={3}
         />
+        || "no data"
       )}
     </DeveloperHistoryLayout>
   </div>;
@@ -39,7 +41,7 @@ const AchievementLayout = Styled.div`
 
 interface AchievementProps
 {
-  achievement: ArrayElement<DeveloperHistoryState["developerHistory"]>;
+  achievement: ArrayElement<NonNullable<DeveloperHistoryState["developerHistory"]>["achievements"]>;
   displayableRowCount: number;
 }
 

@@ -1,13 +1,13 @@
 import {produce} from "immer"
 import {handleActions} from "redux-actions"
 
-import {ProjectDto} from "../../../../common/model/projects/types"
+import {ProjectDto, ProjectHistory} from "../../../../common/model/projects/types"
 import {PROJECTS_RECEIVED, PROJECTS_REQUEST_FAILED} from "./action"
 import {PROJECTS_REQUEST, PROJECTS_REQUEST_FINISHED} from "./action"
 
 export interface ProjectsState {
   isProjectLoading: boolean;
-  projects: ProjectDto[];
+  projectHistory?: ProjectHistory;
   requestProjectsError: {
     shouldErrorDisplayed: boolean,
     reason: string,
@@ -16,9 +16,8 @@ export interface ProjectsState {
 
 const initialProjectsState: ProjectsState = {
   isProjectLoading : true,
-  projects: [],
   requestProjectsError: {
-    shouldErrorDisplayed: true,
+    shouldErrorDisplayed: false,
     reason: "",
   }
 };
@@ -27,7 +26,7 @@ const reducer = handleActions({
   [PROJECTS_RECEIVED]: (state, {payload}) => {
       return produce(state, draft => {
         draft.isProjectLoading = false;
-        draft.projects = payload.projects;
+        draft.projectHistory = payload.projectHistory;
       });
     },
   [PROJECTS_REQUEST_FAILED]: state =>

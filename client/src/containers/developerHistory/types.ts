@@ -1,3 +1,5 @@
+import {DeveloperHistory} from "../../../../common/model/developerHistory/types"
+
 export interface AchievementDto {
   id: number;
   title: string;
@@ -7,5 +9,5 @@ export interface AchievementDto {
 
 export interface DeveloperHistoryState {
   isDeveloperHistoryLoading: boolean;
-  developerHistory: AchievementDto[];
+  developerHistory?: DeveloperHistory;
 }

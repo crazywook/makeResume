@@ -37,7 +37,7 @@ export const ResumePage: React.SFC<{}> = () =>
     <ProjectContainer >
       {props => props.isProjectLoading
         ? <LoadingBlock />
-        : <Project projects={props.projects} />
+        : <Project projectHistory={props.projectHistory} />
       }
     </ProjectContainer>
     <hr/>
@@ -55,4 +55,4 @@ export const ResumePage: React.SFC<{}> = () =>
     <p
       className="">
     </p>
-  </ResumeBody>;
+  </ResumeBody>
