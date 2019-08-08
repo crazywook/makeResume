@@ -1,7 +1,7 @@
-import {Get, JsonController, Param, Post, QueryParam} from "routing-controllers"
+import {Get, JsonController, Param, Post} from "routing-controllers"
 
-import {applicantInfoRepository} from "."
 import {ApplicantInfo} from "../../../common/model/applicant/types"
+import {applicantInfoRepository} from "./applicant.repository"
 
 @JsonController("/applicant")
 export class ApplicantController
@@ -10,15 +10,15 @@ export class ApplicantController
   "get all applicant info"()
   {
     console.log("applicant")
-    return applicantInfoRepository.find()
+    return applicantInfoRepository.find({})
   }
 
   @Get("/:name")
-  "get one applicant info"(
+  async "get one applicant info"(
     @Param("name") name: string
   )
   {
-    return applicantInfoRepository.findByName(name)
+    return applicantInfoRepository.findOne({name}).lean().exec()
   }
 
   @Post("/")
@@ -32,7 +32,7 @@ export class ApplicantController
       skillStack: ["NodeJs", "Typescript", "React", "Java", "Spring"],
       githubUrl: "https://github.com/crazywook/makeResume",
     }
-
-    return applicantInfoRepository.insert(applicantInfoMock)
+    // return applicantInfoMock
+    return new applicantInfoRepository(applicantInfoMock).save()
   }
 }

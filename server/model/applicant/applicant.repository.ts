@@ -1,35 +1,20 @@
-import {Collection, Db, MongoClient} from "mongodb"
+import mongoose, {Document, Schema} from "mongoose"
 
 import {ApplicantInfo} from "../../../common/model/applicant/types"
 
-export class ApplicantInfoRepository {
+type ApplicantInfoDocument = Document & ApplicantInfo
 
-  private collection: Collection<ApplicantInfo>
-
-  constructor(
-    private readonly dbSet: Promise<Db>
-  ) {
-    process.nextTick(async () => {
-      this.collection = (await dbSet).collection("applicantInfo")
-    })
+const applicantInfoSchema: Schema<ApplicantInfo> = new Schema({
+  name: String,
+  email: String,
+  phone: String,
+  career: String,
+  skillStack: [String]
+}, {
+  collection: "applicantInfo",
+  toJSON: {
+    getters: true
   }
+})
 
-  async insert(applicantInfo: ApplicantInfo) {
-    const result = this.collection.insert(applicantInfo)
-    return result
-  }
-
-  find() {
-    const result = this.collection.find({})
-    return result
-  }
-
-  async findByName(name: string) {
-    const result = await this.collection.find({name}).toArray()
-    return result[0]
-  }
-
-  findOne(applicantInfo: Partial<ApplicantInfo>) {
-    return this.collection.findOne(applicantInfo)
-  }
-}
+export const applicantInfoRepository = mongoose.model<ApplicantInfoDocument>("applicantInfo", applicantInfoSchema)

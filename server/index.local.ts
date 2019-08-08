@@ -1,3 +1,5 @@
+import "./persistence/mongo"
+
 import * as fs from "fs"
 
 import {createServer} from "./server"
@@ -15,5 +17,4 @@ createServer().then(server => server.listen(port, (error) => {
   console.log(banner)
   console.log(`mode: ${process.env.NODE_ENV}`)
   console.log(`server start ${port}`)
-
 }))

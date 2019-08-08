@@ -1,6 +1,6 @@
-import {MongoClient} from "mongodb"
+// import {dbSet} from "../../persistence/mongo"
+// import {ApplicantInfoRepository} from "./applicant.repository"
 
-import {dbSet} from "../../persistence/mongo"
-import {ApplicantInfoRepository} from "./applicant.repository"
-
-export const applicantInfoRepository = new ApplicantInfoRepository(dbSet)
+// export const applicantInfoRepository = new ApplicantInfoRepository(dbSet)
+const applicantInfoRepository = {} as any
+export const a = 1
