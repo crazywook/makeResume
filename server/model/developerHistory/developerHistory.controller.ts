@@ -1,4 +1,6 @@
-import {Get, JsonController} from "routing-controllers"
+import {Get, JsonController, Param, Post} from "routing-controllers"
+
+import {developerHistoryRepository} from "./developerHistory.repository"
 
 const developerHistoryMock = [
   {
@@ -34,8 +36,21 @@ const developerHistoryMock = [
 export class DeveloperHistoryController {
 
   @Get("/")
-  "get developer history"() {
+  "get all developer history"() {
 
-    return developerHistoryMock
+    return developerHistoryRepository.find({})
+  }
+
+  @Get("/:name")
+  "get developer history"(@Param("name") name: string) {
+
+    return developerHistoryRepository.findOne({name})
+  }
+
+  @Post("/:name")
+  "create developer history"(
+    @Param("name") name: string
+  ) {
+    return new developerHistoryRepository(developerHistoryMock).save()
   }
 }
