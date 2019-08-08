@@ -8,9 +8,10 @@ export function* watchRequestDeveloperHistory()
   yield takeEvery(DEVELOPER_HISTORY_REQUEST, loadDeveloperHistory);
 }
 
-function* loadDeveloperHistory()
+function* loadDeveloperHistory({type, payload: {name}})
 {
-  const {data, error} = yield call(fetchDeveloperHistory);
+  console.log("payload", name)
+  const {data, error} = yield call(fetchDeveloperHistory, name);
   yield put(DeveloperHistoryAction.requestDeveloperHistoryFinish());
   if (error) {
     yield put(DeveloperHistoryAction.requestDeveloperHistoryFail());

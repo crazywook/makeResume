@@ -5,7 +5,8 @@ export interface AchievementDto {
   contents: string | string[]
 }
 
-export interface DeveloperHistoryState {
-  isDeveloperHistoryLoading: boolean
-  developerHistory: AchievementDto[]
+export interface DeveloperHistory {
+  id: number
+  name: string
+  achievements: AchievementDto[]
 }

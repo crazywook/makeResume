@@ -2,7 +2,7 @@ import moment = require("moment")
 import * as React from "react"
 import Styled from "styled-components"
 
-import {ProjectDto} from "../../../../common/model/projects/types"
+import {ProjectDto, ProjectHistory} from "../../../../common/model/projects/types"
 import {FlexHeader} from "../../components/layout/FlexHeader"
 import {WebLink} from "../../components/projects/WebLink"
 import Block from "../common/ResumeBlock"
@@ -10,7 +10,7 @@ import {BusinessLogics} from "./BusinessLogics"
 
 interface PropsType {
   className?: string;
-  projects: ProjectDto[];
+  projectHistory?: ProjectHistory;
 }
 
 const StyledBlock = Styled.div`
@@ -28,12 +28,13 @@ const StyledBlock = Styled.div`
   }
 `;
 
-export const Project: React.FunctionComponent<PropsType> = ({projects, className = ""}) =>
+export const Project: React.FunctionComponent<PropsType> = ({projectHistory, className = ""}) =>
   <StyledBlock className={className} >
     <h3 className="">
       프로젝트
     </h3>
-    {projects.map(project =>
+    {projectHistory
+      && projectHistory.projects.map(project =>
       <div key={project.id} >
         <FlexHeader>
           <h2

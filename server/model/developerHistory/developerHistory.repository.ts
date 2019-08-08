@@ -1,16 +1,22 @@
 import mongoose, {Document, Schema} from "mongoose"
 
-import {AchievementDto} from "../../../common/model/developerHistory/types"
+import {AchievementDto, DeveloperHistory} from "../../../common/model/developerHistory/types"
 
-type AchievementDocument = AchievementDto & Document
+type DeveloperHistoryDocument = DeveloperHistory & Document
 
-const achievementSchema = new Schema<AchievementDto>({
-  id: Number,
+const achievementSchema = new Schema({
+  id: String,
   title: String,
   startedAt: Date,
   contents: [String]
+})
+
+const developerHistorySchema = new Schema<DeveloperHistory>({
+  id: Number,
+  name: String,
+  achievements: { type: [achievementSchema], default: []}
 }, {
   collection: "developerHistory"
 })
 
-export const developerHistoryRepository = mongoose.model<AchievementDocument>("developerHistory", achievementSchema)
+export const DeveloperHistoryRepository = mongoose.model<DeveloperHistoryDocument>("developerHistory", developerHistorySchema)

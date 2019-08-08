@@ -1,4 +1,4 @@
 import {http} from "../../lib/http"
 
-export const fetchDeveloperHistory = () =>
-  http("/developer-history");
+export const fetchDeveloperHistory = (name: string) =>
+  http(`/developer-history/${name}`);

@@ -14,3 +14,9 @@ export interface ProjectDto {
     contents: string | any[]
   }[]
 }
+
+export interface ProjectHistory {
+  id: number
+  name: string
+  projects: ProjectDto[]
+}

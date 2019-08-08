@@ -4,12 +4,12 @@ import {fetchProjects} from "../../request/project"
 import {ProjectActions, PROJECTS_REQUEST} from "./action"
 
 export function* watchRequestProjects() {
-  yield takeEvery(PROJECTS_REQUEST, loadProjects );
+  yield takeEvery(PROJECTS_REQUEST, loadProjects);
 }
 
-export function* loadProjects()
+export function* loadProjects({type, payload: {name}})
 {
-  const {data, error} = yield call(fetchProjects);
+  const {data, error} = yield call(fetchProjects, name);
   yield put(ProjectActions.requestProjectsFinished());
 
   if (error) {
@@ -17,5 +17,5 @@ export function* loadProjects()
     return;
   }
 
-  yield put(ProjectActions.receiveProjects({projects: data}));
+  yield put(ProjectActions.receiveProjects({projectHistory: data}));
 }
