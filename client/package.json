@@ -47,7 +47,7 @@
     "@types/webpack": "^4.32.1",
     "chai": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "nps": "^5.9.5",
     "redux-devtools-extension": "^2.13.8",
     "ts-loader": "^6.0.4",
